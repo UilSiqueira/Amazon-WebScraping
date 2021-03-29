@@ -1,2 +1,2 @@
 # Amazon-WebScraping
-Web Scraping with Python Repository
+Web Scraping and Python Repository
