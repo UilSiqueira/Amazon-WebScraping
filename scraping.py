@@ -71,12 +71,9 @@ def main(search):
                 and set(product[0].lower().split()[0:2]).intersection(search_product.split()) :
                 #and len(set(product[0].lower().split()).intersection(search_product.split())) \ 
                 # == len(search_product.split()):     
-                
-                '''
-                If you add the two lines above, it will bring only the products
-                that contains the two search words 
-                
-                '''
+                #
+                # If you add the two lines above, it will bring only the products
+                # that contains the two search words 
                 products.append(product)
         
         # if the number of pages is less than 20, it  will break the loop
