@@ -6,9 +6,11 @@ import xlwings as xw
 # Search words
 search_product = 'tv 40"'
 
-# Excel Conexion
+# Excel Conexion.
+#
+# The .xlsx must be in the same .py directory.
 def excel():
-    # The .xlsx must be in the same .py directory
+    """Excel sheet connection"""
     try:
         wbTest = xw.Book('amazon.xlsx')
         # Excel sheet name
@@ -17,17 +19,17 @@ def excel():
         print('excel error, something go wrong')
     
 def get_url(search_product):
-    # Create a URL from search words
+    """Create a URL from search words"""
     template = 'https://www.amazon.com.br/s?k={}&__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&ref=nb_sb_noss_2'
     search = search_product.replace(' ','+')
     return template.format(search)
 
 def next_page(page):
-    # Create a URL for the next page
+    """Create a URL for the next page"""
     return 'https://www.amazon.com.br' + page.a.get('href')
     
 def product_info(item):
-    # Information about the product
+    """Information about the product"""
     atag = item.h2.a
     description = atag.text.strip()
     url_product = 'https://www.amazon.com.br' + atag.get('href')
